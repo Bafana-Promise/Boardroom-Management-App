@@ -1,0 +1,33 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <mat-sidenav-container class="full-height">
+      <mat-sidenav #sidenav class="side-nav-width21" [mode]="&apos;push&apos;" [position] [opened]="true">
+        <div fxLayout="row wrap" fxLayoutAlign="center center" [fxShow]="true">
+          <div fxLayout="column wrap" fxFlex="95" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+            <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true">
+              <div class="margin-top8 font-weight600 xlarge-text">
+                Promise</div>
+            </div>
+            <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutGap="5px" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="Web/Icons/dummy.jpg" class="side-nav-profileSizing border-radius50">
+                <div class="font-weight600">
+                  bafanapromise1@gmail.com</div>
+              </div>
+              <div fxLayout="row wrap" class="side-nav side-nav-items cursor" fxLayoutGap="14px" fxLayoutAlign="start center" [fxShow]="true" routerLink="/home/dashboard" *ngFor="let item of page.sidenavItems">
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" (click)="item.func">
+                  <mat-icon>{{item.icon}}</mat-icon>
+                </div>
+                <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" (click)="item.func">
+                  <div class="font-weight600">
+                    {{item.name}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-sidenav>
+      <router-outlet></router-outlet>
+    </mat-sidenav-container>
+  </div>
+</div>

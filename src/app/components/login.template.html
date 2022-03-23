@@ -1,0 +1,33 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
+      <div fxLayout="column wrap" fxFlex="49.7" fxLayoutAlign="start stretch" [fxShow]="true"><img imgSrc="Web/Icons/boardroom.jpg" class="full-height full-width"></div>
+      <div fxLayout="row wrap" fxFlex="49.7" fxLayoutAlign="center center" [fxShow]="true">
+        <div fxLayout="column wrap" fxFlex="89" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+          <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true">
+            <div class="font-weight600 xxlarge-text">
+              Login Details</div>
+          </div>
+          <form>
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput placeholder="Enter Email" [required]="false">
+                  <mat-label>Email</mat-label>
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput placeholder="Enter Password" [required]="false">
+                  <mat-label>Password</mat-label>
+                </mat-form-field>
+              </div>
+              <div fxLayout="column wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div>
+                  Not a user.? <span class="cursor">Register</span></div><button mat-raised-button color="primary" (click)="login()">Login</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
