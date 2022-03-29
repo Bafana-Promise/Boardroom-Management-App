@@ -8,6 +8,9 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -74,11 +77,28 @@ export class homeComponent {
     }
   }
 
+  menuOpen(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_L97xzNGPHWu87dvJ(bh);
+      //appendnew_next_menuOpen
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_W68nhsn0lsk23CO6');
+    }
+  }
+
   //appendnew_flow_homeComponent_start
 
   sd_QLL89PJFFkfl06Kr(bh) {
     try {
       this.page.sidenavItems = undefined;
+      this.page.sideNavOpen = true;
+      this.page.menuBarOpen = false;
+      this.page.iconName = 'expand_more';
       bh = this.sd_QhGoHZOb0IOg3UpN(bh);
       //appendnew_next_sd_QLL89PJFFkfl06Kr
       return bh;
@@ -110,13 +130,32 @@ export class homeComponent {
   sd_gzr5GmvZpFLPdFdx(bh) {
     try {
       const page = this.page;
+      sessionStorage.clear();
+      //return redirect('/login');
       window.location.href = '/login';
-      console.log(window.location);
+      //console.log(window.location)
       //window.sessionStorage.clear()
       //appendnew_next_sd_gzr5GmvZpFLPdFdx
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_gzr5GmvZpFLPdFdx');
+    }
+  }
+
+  sd_L97xzNGPHWu87dvJ(bh) {
+    try {
+      const page = this.page;
+      if (page.menuBarOpen) {
+        page.iconName = 'expand_more';
+        page.menuBarOpen = false;
+      } else {
+        page.iconName = 'expand_less';
+        page.menuBarOpen = true;
+      }
+      //appendnew_next_sd_L97xzNGPHWu87dvJ
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_L97xzNGPHWu87dvJ');
     }
   }
 

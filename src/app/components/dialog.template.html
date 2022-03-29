@@ -1,0 +1,35 @@
+<div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
+  <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
+    <mat-card>
+      <mat-card-title align="center">Add User</mat-card-title>
+
+      <mat-card-subtitle align="center">Register User</mat-card-subtitle>
+
+      <mat-card-content>
+        <form #addUserForm="ngForm">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.dm.user.position" name="position" type="number" placeholder="Position" [required]="false">
+
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.dm.user.name" name="name" placeholder="Name" [required]="false">
+
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.dm.user.weight" name="weight" type="number" placeholder="Weight" [required]="false">
+
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;legacy&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="page.dm.user.symbol" name="symbol" placeholder="Symbol" [required]="false">
+
+            </mat-form-field>
+            <div fxLayout="row wrap" fxLayoutGap="5px" fxLayoutAlign="end stretch" [fxShow]="true"><button mat-raised-button color="accent" (click)="addUserForm.reset()">Reset</button><button mat-raised-button [mat-dialog-close]="addUserForm.value" color="primary">Add</button><button mat-raised-button mat-dialog-close color="warn">Cancel</button></div>
+          </div>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions></mat-card-actions>
+    </mat-card>
+  </div>
+</div>

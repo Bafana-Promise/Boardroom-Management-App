@@ -8,6 +8,9 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -62,12 +65,12 @@ export class loginComponent {
     }
   }
 
-  login(...others) {
+  login(loginUser: any = undefined, ...others) {
     try {
       var bh: any = this.__page_injector__
         .get(SDPageCommonService)
         .constructFlowObject(this);
-      bh.input = {};
+      bh.input = { loginUser: loginUser };
       bh.local = {};
       bh = this.sd_IJIg3LXEZQrZecqY(bh);
       //appendnew_next_login
@@ -76,11 +79,26 @@ export class loginComponent {
     }
   }
 
+  register(regUser: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { regUser: regUser };
+      bh.local = {};
+      bh = this.sd_UgEqa1yAywarVrX5(bh);
+      //appendnew_next_register
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Udwx7V9v4IlpvS5J');
+    }
+  }
+
   //appendnew_flow_loginComponent_start
 
   sd_yq9w9xH97S4FJFI6(bh) {
     try {
       this.page.window = undefined;
+      this.page.showLogin = true;
       //appendnew_next_sd_yq9w9xH97S4FJFI6
       return bh;
     } catch (e) {
@@ -91,12 +109,26 @@ export class loginComponent {
   sd_IJIg3LXEZQrZecqY(bh) {
     try {
       const page = this.page;
+      console.log(bh.input.loginUser, 'Hello Logged In User');
+      sessionStorage.setItem('user', JSON.stringify(bh.input.loginUser));
       window.location.href = '/home';
-      console.log(window);
+      //console.log(window)
       //appendnew_next_sd_IJIg3LXEZQrZecqY
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_IJIg3LXEZQrZecqY');
+    }
+  }
+
+  sd_UgEqa1yAywarVrX5(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.regUser, 'User Registered Successfully');
+      localStorage.setItem('user', JSON.stringify(bh.input.regUser));
+      //appendnew_next_sd_UgEqa1yAywarVrX5
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UgEqa1yAywarVrX5');
     }
   }
 

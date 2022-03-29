@@ -3,26 +3,62 @@
     <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
       <div fxLayout="column wrap" fxFlex="49.7" fxLayoutAlign="start stretch" [fxShow]="true"><img imgSrc="Web/Icons/boardroom.jpg" class="full-height full-width"></div>
       <div fxLayout="row wrap" fxFlex="49.7" fxLayoutAlign="center center" [fxShow]="true">
-        <div fxLayout="column wrap" fxFlex="89" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
+        <div fxLayout="column wrap" fxFlex="89" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="!page.showLogin">
           <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true">
-            <div class="font-weight600 xxlarge-text">
-              Login Details</div>
+            <div style="color: #a3cce9;" class="xxlarge-text font-weight600">
+              Register</div>
           </div>
-          <form>
+          <form #registerForm="ngForm">
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
               <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                 <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                  <input matInput placeholder="Enter Email" [required]="false">
+                  <input matInput [(ngModel)]="page.dm.reg.firstName" name="firstName" placeholder="Name" [required]="false">
+
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="page.dm.reg.lastName" name="lastName" placeholder="Surname" [required]="false">
+
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="page.dm.reg.email" name="email" placeholder="Email" [required]="false">
+
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="page.dm.reg.pass" name="pass" placeholder="Password" [required]="false">
+
+                </mat-form-field>
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="page.dm.reg.conPass" name="conPass" placeholder="Confirm Password" [required]="false">
+
+                </mat-form-field>
+              </div>
+              <div fxLayout="column wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
+                <div style="color: #a3cce9;">
+                  Already a user.? <span style="color: #567bc1;" class="cursor" (click)="page.showLogin = !page.showLogin">Login</span></div><button mat-raised-button color="primary" (click)="register(registerForm.value)">Register</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div fxLayout="column wrap" fxFlex="89" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true" *ngIf="page.showLogin">
+          <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true">
+            <div style="color: #a3cce9;" class="font-weight600 xxlarge-text">
+              Login Details</div>
+          </div>
+          <form #loginForm="ngForm">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
+                <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+                  <input matInput [(ngModel)]="page.dm.login.email" name="email" placeholder="Enter Email" [required]="false">
                   <mat-label>Email</mat-label>
                 </mat-form-field>
                 <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
-                  <input matInput placeholder="Enter Password" [required]="false">
+                  <input matInput [(ngModel)]="page.dm.login.password" name="password" placeholder="Enter Password" [required]="false">
                   <mat-label>Password</mat-label>
                 </mat-form-field>
               </div>
               <div fxLayout="column wrap" fxLayoutGap="15px" fxLayoutAlign="start stretch" [fxShow]="true">
-                <div>
-                  Not a user.? <span class="cursor">Register</span></div><button mat-raised-button color="primary" (click)="login()">Login</button>
+                <div style="color: #a3cce9;">
+                  Not a user.? <span style="color: #567bc1;" class="cursor" (click)="page.showLogin = !page.showLogin">Register</span></div><button mat-raised-button color="primary" (click)="login(loginForm.value)">Login</button>
               </div>
             </div>
           </form>
