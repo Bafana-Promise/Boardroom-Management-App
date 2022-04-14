@@ -15,6 +15,12 @@ window['neutrinos'] = {
 };
 
 //CORE_REFERENCE_IMPORTS
+//CORE_REFERENCE_IMPORT-updateDialogComponent
+import { updateDialogComponent } from '../components/updateDialog.component';
+//CORE_REFERENCE_IMPORT-bookingComponent
+import { bookingComponent } from '../components/booking.component';
+//CORE_REFERENCE_IMPORT-manage_memberComponent
+import { manage_memberComponent } from '../components/manage_member.component';
 //CORE_REFERENCE_IMPORT-dialogComponent
 import { dialogComponent } from '../components/dialog.component';
 //CORE_REFERENCE_IMPORT-homeComponent
@@ -55,6 +61,12 @@ export const appDeclarations = [
   PageNotFoundComponent,
   ArtImgSrcDirective,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-updateDialogComponent
+  updateDialogComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-bookingComponent
+  bookingComponent,
+  //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-manage_memberComponent
+  manage_memberComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-dialogComponent
   dialogComponent,
   //CORE_REFERENCE_PUSH_TO_DEC_ARRAY-homeComponent
@@ -92,7 +104,10 @@ export const appRoutes = [
   {
     path: 'home',
     component: homeComponent,
-    children: [{ path: 'dashboard', component: dashboardComponent }],
+    children: [
+      { path: 'dashboard', component: dashboardComponent },
+      { path: 'member', component: manage_memberComponent },
+    ],
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },

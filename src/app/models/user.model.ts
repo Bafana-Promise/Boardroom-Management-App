@@ -2,16 +2,19 @@ import {JsonProperty, JsonObject} from '../lib/tj.deserializer'
 
 @JsonObject
 export class user {
-  @JsonProperty('position', Number, true)
-  public position: number = undefined;
+  @JsonProperty('firstName', String, true)
+  public firstName: string = undefined;
 
-  @JsonProperty('name', String, true)
-  public name: string = undefined;
+  @JsonProperty('lastName', String, true)
+  public lastName: string = undefined;
 
-  @JsonProperty('weight', Number, true)
-  public weight: number = undefined;
+  @JsonProperty('email', String, true)
+  public email: string = undefined;
 
-  @JsonProperty('symbol', String, true)
-  public symbol: string = undefined;
+  @JsonProperty('password', String, true)
+  public password: string = undefined;
+
+  @JsonProperty('canBook', Boolean, true)
+  public canBook: boolean = undefined;
 
 }

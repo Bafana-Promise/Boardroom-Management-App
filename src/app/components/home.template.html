@@ -1,6 +1,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" fxFill>
   <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true">
-    <mat-sidenav-container class="full-width full-height side-nav-containerbg white-bg">
+    <mat-sidenav-container class="full-height full-width side-nav-containerbg white-bg">
       <div fxLayout="row wrap" style="background:  #c9daee;" class="height-vh9" fxLayoutAlign="center center" [fxShow]="true">
         <div fxLayout="column wrap" fxFlex="95" fxLayoutAlign="start stretch" [fxShow]="true">
           <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true">
@@ -13,10 +13,12 @@
             <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
               <div fxLayout="row wrap" class="cursor" fxLayoutGap="20px" fxLayoutAlign="start center" [fxShow]="true">
                 <div class="toolbar-first-style xlarge-text font-weight600">
-                  P</div>
+                  {{page.loggedInUser.firstName.charAt(0)}}
+                </div>
                 <div fxLayout="row wrap" fxLayoutGap="9px" fxLayoutAlign="start center" [fxShow]="true" (click)="page.menuBarOpen= !page.menuBarOpen" [matMenuTriggerFor]="menu">
                   <div>
-                    Promise</div>
+                    {{page.loggedInUser.firstName}}
+                  </div>
                   <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                     <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true">
                       <mat-icon class="cursor" *ngIf="!page.menuBarOpen">expand_more</mat-icon>
@@ -26,7 +28,8 @@
                         <div fxLayout="row wrap" fxLayoutAlign="space-between center" [fxShow]="true" (click)="logout()">
                           <mat-icon>power_settings_new</mat-icon>
                           <div>
-                            Promise</div>
+                            {{page.loggedInUser.firstName}}
+                          </div>
                         </div>
                       </button></mat-menu>
                   </div>
@@ -36,13 +39,14 @@
           </div>
         </div>
       </div>
-      <mat-sidenav #sidenav class="side-nav-width21" [mode]="&apos;side&apos;" [position] [opened]="true">
+      <mat-sidenav #sidenav class="side-nav-width21" [mode]="&apos;side&apos;" [position]="&apos;start&apos;" [opened]="true" disableClose="true">
         <div fxLayout="row wrap" fxLayoutAlign="center center" [fxShow]="true">
           <div fxLayout="column wrap" fxFlex="95" fxLayoutGap="12px" fxLayoutAlign="start stretch" [fxShow]="true">
             <div fxLayout="column wrap" fxLayoutAlign="start center" [fxShow]="true">
               <div fxLayout="row wrap" fxLayoutGap="13px" fxLayoutAlign="start center" [fxShow]="true">
                 <div class="margin-top8 font-weight600 xlarge-text">
-                  Promise</div>
+                  {{page.loggedInUser.firstName}}
+                </div>
                 <div fxLayout="row wrap" class="cursor" fxLayoutGap="7px" fxLayoutAlign="start stretch" [fxShow]="true" (click)="sidenav.toggle();page.sideNavOpen = false;" *ngIf="page.sideNavOpen">
                   <mat-icon style="right: 12px;  top: 16px;" class="position-absolute">chevron_left</mat-icon>
                   <mat-icon style="right: 12px;  top: 16px;" class="position-absolute">chevron_left</mat-icon>
@@ -52,7 +56,8 @@
             <div fxLayout="column wrap" fxLayoutGap="10px" fxLayoutAlign="start stretch" [fxShow]="true">
               <div fxLayout="column wrap" fxLayoutGap="5px" fxLayoutAlign="start center" [fxShow]="true"><img imgSrc="Web/Icons/dummy.jpg" class="side-nav-profileSizing border-radius50">
                 <div class="font-weight600">
-                  bafanapromise1@gmail.com</div>
+                  {{page.loggedInUser.email}}
+                </div>
               </div>
               <div fxLayout="row wrap" class="side-nav side-nav-items cursor" fxLayoutGap="14px" fxLayoutAlign="start center" [fxShow]="true" routerLinkActive="active-route" routerLink="/home/dashboard">
                 <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" (click)="item.func">
@@ -85,7 +90,11 @@
           </div>
         </div>
       </mat-sidenav>
-      <router-outlet></router-outlet>
+      <div fxLayout="row wrap" fxLayoutAlign="center center" [fxShow]="true">
+        <div fxLayout="column wrap" fxFlex="95" fxLayoutAlign="start stretch" [fxShow]="true">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
     </mat-sidenav-container>
   </div>
 </div>

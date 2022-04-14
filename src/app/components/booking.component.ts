@@ -8,6 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
+  ViewChild,
+  ViewChildren,
+  HostListener,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -16,13 +20,13 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitt
 //append_imports_end
 
 @Component({
-  selector: 'bh-dialog',
-  templateUrl: './dialog.template.html',
+  selector: 'bh-booking',
+  templateUrl: './booking.template.html',
   providers: [
     //appendnew_element_providers
   ],
 })
-export class dialogComponent {
+export class bookingComponent {
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -40,7 +44,7 @@ export class dialogComponent {
       .get(SDPageCommonService)
       .constructFlowObject(this);
     {
-      this.sd_n5XA2Tg1aPYjLkSW(bh);
+      this.sd_u1Dd8bSkMlMNfMGr(bh);
     }
   }
 
@@ -52,24 +56,38 @@ export class dialogComponent {
     //append_listeners
   }
 
-  sd_n5XA2Tg1aPYjLkSW(bh) {
+  sd_u1Dd8bSkMlMNfMGr(bh) {
     try {
-      bh = this.sd_wJHdaoxMINoFiVi3(bh);
-      //appendnew_next_sd_n5XA2Tg1aPYjLkSW
+      bh = this.sd_uZc1Y8tkbTYV7N1b(bh);
+      //appendnew_next_sd_u1Dd8bSkMlMNfMGr
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_n5XA2Tg1aPYjLkSW');
+      return this.errorHandler(bh, e, 'sd_u1Dd8bSkMlMNfMGr');
     }
   }
 
-  //appendnew_flow_dialogComponent_start
+  //appendnew_flow_bookingComponent_start
 
-  sd_wJHdaoxMINoFiVi3(bh) {
+  sd_uZc1Y8tkbTYV7N1b(bh) {
     try {
-      //appendnew_next_sd_wJHdaoxMINoFiVi3
+      this.page.startDate = undefined;
+      bh = this.sd_qx1gpBuDqepWoZEo(bh);
+      //appendnew_next_sd_uZc1Y8tkbTYV7N1b
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_wJHdaoxMINoFiVi3');
+      return this.errorHandler(bh, e, 'sd_uZc1Y8tkbTYV7N1b');
+    }
+  }
+
+  sd_qx1gpBuDqepWoZEo(bh) {
+    try {
+      const page = this.page;
+      page.startDate = new Date(2019, 0, 1);
+
+      //appendnew_next_sd_qx1gpBuDqepWoZEo
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_qx1gpBuDqepWoZEo');
     }
   }
 
@@ -95,5 +113,5 @@ export class dialogComponent {
       throw e;
     }
   }
-  //appendnew_flow_dialogComponent_Catch
+  //appendnew_flow_bookingComponent_Catch
 }

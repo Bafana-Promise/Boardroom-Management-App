@@ -8,6 +8,10 @@ import {
   Input,
   Output,
   EventEmitter,
+  AfterViewInit,
+  ViewChild,
+  ViewChildren,
+  HostListener,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
@@ -16,13 +20,13 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms'; //_splitt
 //append_imports_end
 
 @Component({
-  selector: 'bh-dialog',
-  templateUrl: './dialog.template.html',
+  selector: 'bh-updateDialog',
+  templateUrl: './updateDialog.template.html',
   providers: [
     //appendnew_element_providers
   ],
 })
-export class dialogComponent {
+export class updateDialogComponent {
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -40,7 +44,7 @@ export class dialogComponent {
       .get(SDPageCommonService)
       .constructFlowObject(this);
     {
-      this.sd_n5XA2Tg1aPYjLkSW(bh);
+      this.sd_bXSz37g8NjZ2lZdE(bh);
     }
   }
 
@@ -52,24 +56,24 @@ export class dialogComponent {
     //append_listeners
   }
 
-  sd_n5XA2Tg1aPYjLkSW(bh) {
+  sd_bXSz37g8NjZ2lZdE(bh) {
     try {
-      bh = this.sd_wJHdaoxMINoFiVi3(bh);
-      //appendnew_next_sd_n5XA2Tg1aPYjLkSW
+      bh = this.sd_mZYtgPzo5zIkXxWk(bh);
+      //appendnew_next_sd_bXSz37g8NjZ2lZdE
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_n5XA2Tg1aPYjLkSW');
+      return this.errorHandler(bh, e, 'sd_bXSz37g8NjZ2lZdE');
     }
   }
 
-  //appendnew_flow_dialogComponent_start
+  //appendnew_flow_updateDialogComponent_start
 
-  sd_wJHdaoxMINoFiVi3(bh) {
+  sd_mZYtgPzo5zIkXxWk(bh) {
     try {
-      //appendnew_next_sd_wJHdaoxMINoFiVi3
+      //appendnew_next_sd_mZYtgPzo5zIkXxWk
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_wJHdaoxMINoFiVi3');
+      return this.errorHandler(bh, e, 'sd_mZYtgPzo5zIkXxWk');
     }
   }
 
@@ -95,5 +99,5 @@ export class dialogComponent {
       throw e;
     }
   }
-  //appendnew_flow_dialogComponent_Catch
+  //appendnew_flow_updateDialogComponent_Catch
 }

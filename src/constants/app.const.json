@@ -2,6 +2,7 @@
     "dataSource": {
         "user": "neutrinos-training-rt",
         "login": "neutrinos-training-rt",
-        "reg": "neutrinos-training-rt"
+        "reg": "neutrinos-training-rt",
+        "bookingdm": "neutrinos-training-rt"
     }
 }

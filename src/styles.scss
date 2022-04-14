@@ -118,3 +118,20 @@ $white-color: white;
     background: white !important;
   }
 }
+.overflowX{
+    height: 82vh;
+    overflow-x: hidden;
+}
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+*::-webkit-scrollbar-track {
+  background: rgb(201, 218, 238); 
+}
+*::-webkit-scrollbar-thumb {
+  background: rgb(201, 218, 238);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(233, 243, 255);
+}

@@ -11,10 +11,12 @@ import {
   AfterViewInit,
   ViewChild,
   ViewChildren,
+  HostListener,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { MatSnackBar } from '@angular/material/snack-bar'; //_splitter_
 //append_imports_end
 
 @Component({
@@ -91,6 +93,19 @@ export class homeComponent {
     }
   }
 
+  @HostListener('window:resize', ['$event']) sd_Pl3dwe48MTj2wpmw(event) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.$event = event;
+      bh = this.sd_4u7VFP2CAK7RXDSg(bh);
+      //appendnew_next_sd_Pl3dwe48MTj2wpmw
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Pl3dwe48MTj2wpmw');
+    }
+  }
+
   //appendnew_flow_homeComponent_start
 
   sd_QLL89PJFFkfl06Kr(bh) {
@@ -99,6 +114,9 @@ export class homeComponent {
       this.page.sideNavOpen = true;
       this.page.menuBarOpen = false;
       this.page.iconName = 'expand_more';
+      this.page.sideNavMode = 'Side';
+      this.page.users = undefined;
+      this.page.loggedInUser = undefined;
       bh = this.sd_QhGoHZOb0IOg3UpN(bh);
       //appendnew_next_sd_QLL89PJFFkfl06Kr
       return bh;
@@ -120,6 +138,8 @@ export class homeComponent {
           func: 'logout()',
         },
       ];
+      page.loggedInUser = JSON.parse(sessionStorage.getItem('user'));
+      console.log(page.loggedInUser, 'One Session');
       //appendnew_next_sd_QhGoHZOb0IOg3UpN
       return bh;
     } catch (e) {
@@ -135,10 +155,28 @@ export class homeComponent {
       window.location.href = '/login';
       //console.log(window.location)
       //window.sessionStorage.clear()
+      bh = this.sd_SaN27PfeCQjNA2Xa(bh);
       //appendnew_next_sd_gzr5GmvZpFLPdFdx
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_gzr5GmvZpFLPdFdx');
+    }
+  }
+
+  sd_SaN27PfeCQjNA2Xa(bh) {
+    try {
+      this.__page_injector__
+        .get(MatSnackBar)
+        .open('Logged out successfully', 'close', {
+          duration: 4000,
+          direction: 'ltr',
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+      //appendnew_next_sd_SaN27PfeCQjNA2Xa
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_SaN27PfeCQjNA2Xa');
     }
   }
 
@@ -156,6 +194,27 @@ export class homeComponent {
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_L97xzNGPHWu87dvJ');
+    }
+  }
+
+  sd_4u7VFP2CAK7RXDSg(bh) {
+    try {
+      const page = this.page; //console.log('hello')
+      //console.log(window.innerWidth)
+      //page.sideNavMode = (window.innerWidth <= 600) ? 'side' : 'over';
+      //console.log(page.sideNavMode)
+
+      if (window.innerWidth <= 800) {
+        page.sideNavMode = 'Over';
+      } else {
+        page.sideNavMode = 'Side';
+      }
+      console.log(page.sideNavMode);
+
+      //appendnew_next_sd_4u7VFP2CAK7RXDSg
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_4u7VFP2CAK7RXDSg');
     }
   }
 

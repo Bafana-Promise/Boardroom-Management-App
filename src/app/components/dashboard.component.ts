@@ -8,15 +8,14 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterViewInit,
-  ViewChild,
-  ViewChildren,
 } from '@angular/core'; //_splitter_
 import { SDBaseService } from 'app/n-services/SDBaseService'; //_splitter_
 import { SDPageCommonService } from 'app/n-services/sd-page-common.service'; //_splitter_
 import { __NEU_ServiceInvokerService__ } from 'app/n-services/service-caller.service'; //_splitter_
+import { crudOperation } from 'app/sd-services/crudOperation'; //_splitter_
 import { MatDialog } from '@angular/material/dialog'; //_splitter_
 import { dialogComponent } from './dialog.component'; //_splitter_
+import { updateDialogComponent } from './updateDialog.component'; //_splitter_
 import { MatSort, SortDirection } from '@angular/material/sort'; //_splitter_
 import { MatTableDataSource } from '@angular/material/table'; //_splitter_
 //append_imports_end
@@ -28,9 +27,7 @@ import { MatTableDataSource } from '@angular/material/table'; //_splitter_
     //appendnew_element_providers
   ],
 })
-export class dashboardComponent implements AfterViewInit {
-  @ViewChild(MatSort)
-  public MatSort: any = null;
+export class dashboardComponent {
   page: any = { dep: {} };
   constructor(
     private __page_injector__: Injector,
@@ -62,22 +59,11 @@ export class dashboardComponent implements AfterViewInit {
   sd_9yKA3DX36HvNUEQR(bh) {
     try {
       bh = this.sd_WQNXgV2AmBqeY0LE(bh);
+      bh = this.sd_ibUeR6TpvuQDlRJE(bh);
       //appendnew_next_sd_9yKA3DX36HvNUEQR
       return bh;
     } catch (e) {
       return this.errorHandler(bh, e, 'sd_9yKA3DX36HvNUEQR');
-    }
-  }
-
-  ngAfterViewInit() {
-    try {
-      var bh: any = this.__page_injector__
-        .get(SDPageCommonService)
-        .constructFlowObject(this);
-      bh = this.sd_xKCCTWKzvgDN0rx7_1(bh);
-      //appendnew_next_ngAfterViewInit
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_bHHWpcDpGTW4GasX');
     }
   }
 
@@ -95,12 +81,72 @@ export class dashboardComponent implements AfterViewInit {
     }
   }
 
+  tableData(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_ibUeR6TpvuQDlRJE(bh);
+      bh = this.sd_rnx3vVLUOzoif8gw(bh);
+      //appendnew_next_tableData
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_xzgYsGu7JqIo2qvN');
+    }
+  }
+
+  deleteUser(id: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { id: id };
+      bh.local = {};
+      bh = this.sd_UtJ87pxje1VAFTug(bh);
+      //appendnew_next_deleteUser
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_q6iZR82AbdbrGZX0');
+    }
+  }
+
+  addUser(addUser: any = undefined, ...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = { addUser: addUser };
+      bh.local = {};
+      //appendnew_next_addUser
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_aZh1lGZu5XzGT6nf');
+    }
+  }
+
+  openEditDialog(...others) {
+    try {
+      var bh: any = this.__page_injector__
+        .get(SDPageCommonService)
+        .constructFlowObject(this);
+      bh.input = {};
+      bh.local = {};
+      bh = this.sd_UpNR8ciFCzpVQW5W(bh);
+      //appendnew_next_openEditDialog
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_YnEOdQCm4zEV7rmq');
+    }
+  }
+
   //appendnew_flow_dashboardComponent_start
 
   sd_WQNXgV2AmBqeY0LE(bh) {
     try {
       this.page.res = undefined;
-      bh = this.sd_eJuzOUTYKNgXaqdz_1(bh);
+      this.page.loggedUser = undefined;
+      this.page.users = undefined;
+      this.page.tableData = undefined;
+      this.page.editRes = undefined;
+      bh = this.getUsers(bh);
       //appendnew_next_sd_WQNXgV2AmBqeY0LE
       return bh;
     } catch (e) {
@@ -108,110 +154,64 @@ export class dashboardComponent implements AfterViewInit {
     }
   }
 
-  sd_eJuzOUTYKNgXaqdz_1(bh) {
+  getUsers(bh) {
     try {
       const page = this.page;
-      bh.local.dataSource = new MatTableDataSource([
-        {
-          position: 1,
-          name: 'Hydrogen',
-          weight: 1.0079,
-          symbol: 'H',
-        },
-        {
-          position: 2,
-          name: 'Helium',
-          weight: 4.0026,
-          symbol: 'He',
-        },
-        {
-          position: 3,
-          name: 'Lithium',
-          weight: 6.941,
-          symbol: 'Li',
-        },
-        {
-          position: 4,
-          name: 'Beryllium',
-          weight: 9.0122,
-          symbol: 'Be',
-        },
-        {
-          position: 5,
-          name: 'Boron',
-          weight: 10.811,
-          symbol: 'B',
-        },
-        {
-          position: 6,
-          name: 'Carbon',
-          weight: 12.0107,
-          symbol: 'C',
-        },
-        {
-          position: 7,
-          name: 'Nitrogen',
-          weight: 14.0067,
-          symbol: 'N',
-        },
-        {
-          position: 8,
-          name: 'Oxygen',
-          weight: 15.9994,
-          symbol: 'O',
-        },
-        {
-          position: 9,
-          name: 'Fluorine',
-          weight: 18.9984,
-          symbol: 'F',
-        },
-        {
-          position: 10,
-          name: 'Neon',
-          weight: 20.1797,
-          symbol: 'Ne',
-        },
-      ]);
-      bh = this.sd_E9QbOlnVduPNV5MO_1(bh);
-      //appendnew_next_sd_eJuzOUTYKNgXaqdz_1
+      page.loggedUser = JSON.parse(sessionStorage.getItem('user'));
+      // console.log(page.loggedUser,"Back From Session Store")
+      if (page.loggedUser.email.includes('z')) {
+        return true;
+      } else {
+        return (window.location.href = '/home/member');
+      }
+      bh = this.sd_rnx3vVLUOzoif8gw(bh);
+      //appendnew_next_getUsers
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_NgPPodICQ82qZF1U');
+      return this.errorHandler(bh, e, 'sd_DON8UMkQCnGVeEFG');
     }
   }
 
-  sd_E9QbOlnVduPNV5MO_1(bh) {
+  async sd_rnx3vVLUOzoif8gw(bh) {
     try {
-      this.page.tableData = bh.local.dataSource;
-      //appendnew_next_sd_E9QbOlnVduPNV5MO_1
+      const crudOperationInstance: crudOperation =
+        this.__page_injector__.get(crudOperation);
+
+      let outputVariables = await crudOperationInstance.getRegUsers();
+      this.page.users = outputVariables.local.result;
+
+      bh = this.sd_DX21OE4czXLJYImh(bh);
+      //appendnew_next_sd_rnx3vVLUOzoif8gw
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_HufLg5zkNkagrWDE');
+      return await this.errorHandler(bh, e, 'sd_rnx3vVLUOzoif8gw');
     }
   }
 
-  sd_xKCCTWKzvgDN0rx7_1(bh) {
-    try {
-      bh.pageViews = Object.assign(bh.pageViews || {}, {
-        MatSort: this.MatSort,
-      });
-      bh = this.sd_2VNGqvcKee34lvOz_1(bh);
-      //appendnew_next_sd_xKCCTWKzvgDN0rx7_1
-      return bh;
-    } catch (e) {
-      return this.errorHandler(bh, e, 'sd_jDAL8xNFLXGP81MI');
-    }
-  }
-
-  sd_2VNGqvcKee34lvOz_1(bh) {
+  sd_DX21OE4czXLJYImh(bh) {
     try {
       const page = this.page;
-      this.page.tableData.sort = this.MatSort;
-      //appendnew_next_sd_2VNGqvcKee34lvOz_1
+      console.log(page.users, 'Users from back end Two dashboard');
+
+      page.tableData = page.users;
+      //page.users.forEach(function (item) {
+      //   console.log(item,'Each');
+      //})
+      console.log(page.tableData, 'o');
+      //appendnew_next_sd_DX21OE4czXLJYImh
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_gFiI8w62RP2x1pQN');
+      return this.errorHandler(bh, e, 'sd_DX21OE4czXLJYImh');
+    }
+  }
+
+  sd_ibUeR6TpvuQDlRJE(bh) {
+    try {
+      bh = this.sd_rnx3vVLUOzoif8gw(bh);
+      //appendnew_next_sd_ibUeR6TpvuQDlRJE
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_ibUeR6TpvuQDlRJE');
     }
   }
 
@@ -221,7 +221,7 @@ export class dashboardComponent implements AfterViewInit {
       const dialogDialogRef = dialogDialog.open(dialogComponent, {});
       dialogDialogRef.afterClosed().subscribe((event) => {
         this.page.res = event;
-        this.sd_IloPwwpnL4FkrRss(bh);
+        this.sd_whe4mF6xwGL9tudu(bh);
 
         //appendnew_next_sd_RQCUNnpkGEIcfAN7;
       });
@@ -232,17 +232,177 @@ export class dashboardComponent implements AfterViewInit {
     }
   }
 
-  sd_IloPwwpnL4FkrRss(bh) {
+  sd_whe4mF6xwGL9tudu(bh) {
     try {
       const page = this.page;
-      var user = page.res;
-      console.log(user, 'Hello Data');
-      localStorage.setItem('users', JSON.stringify(user));
-      //return JSON.parse(sessionStorage.getItem("user"));
-      //appendnew_next_sd_IloPwwpnL4FkrRss
+      page.res;
+
+      // page.users
+      // page.users.forEach(function (item) {
+      //     bh.local.message = ""
+      // if(item.email == page.res.email && item.pass == page.res.pass){
+      //     console.log(item.email,'Data from SSD')
+      //     console.log(page.res.email,'Data from template')
+      //     bh.local.message = "User already exist"
+      //     return bh.local.message = "User already exist"
+      // }else{
+      //     localStorage.setItem("user", JSON.stringify(page.res))
+      //     setTimeout( () =>{
+      //     //window.location.reload()
+      // }, 2000 );
+      //     bh.local.message = "User Added successfully"
+      // }
+      //    console.log(item.email,'Each');
+      //    console.log(page.res.email,'from tem');
+      // })
+      // console.log(page.users,'reg test')
+      bh = this.sd_CFCuPoy03YrDUVli(bh);
+      //appendnew_next_sd_whe4mF6xwGL9tudu
       return bh;
     } catch (e) {
-      return this.errorHandler(bh, e, 'sd_IloPwwpnL4FkrRss');
+      return this.errorHandler(bh, e, 'sd_whe4mF6xwGL9tudu');
+    }
+  }
+
+  async sd_CFCuPoy03YrDUVli(bh) {
+    try {
+      const crudOperationInstance: crudOperation =
+        this.__page_injector__.get(crudOperation);
+
+      let outputVariables = await crudOperationInstance.registerUser(
+        this.page.res
+      );
+      bh.local.data = outputVariables.local.result;
+
+      bh = this.sd_MB6jtvwtuABiaJwd(bh);
+      //appendnew_next_sd_CFCuPoy03YrDUVli
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_CFCuPoy03YrDUVli');
+    }
+  }
+
+  async sd_MB6jtvwtuABiaJwd(bh) {
+    try {
+      const crudOperationInstance: crudOperation =
+        this.__page_injector__.get(crudOperation);
+
+      let outputVariables = await crudOperationInstance.getRegUsers();
+      this.page.users = outputVariables.local.result;
+
+      bh = this.sd_oujtPnaj4pIGYa4C(bh);
+      //appendnew_next_sd_MB6jtvwtuABiaJwd
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_MB6jtvwtuABiaJwd');
+    }
+  }
+
+  sd_oujtPnaj4pIGYa4C(bh) {
+    try {
+      const page = this.page;
+      console.log(page.users, 'Users from back end Two dashboard');
+
+      page.tableData = page.users;
+      //page.users.forEach(function (item) {
+      //   console.log(item,'Each');
+      //})
+      console.log(page.tableData, 'o');
+      //appendnew_next_sd_oujtPnaj4pIGYa4C
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_oujtPnaj4pIGYa4C');
+    }
+  }
+
+  sd_UtJ87pxje1VAFTug(bh) {
+    try {
+      const page = this.page;
+      console.log(bh.input.id, 'Hello there');
+      bh = this.sd_1nscaOORocM3clrV(bh);
+      //appendnew_next_sd_UtJ87pxje1VAFTug
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UtJ87pxje1VAFTug');
+    }
+  }
+
+  async sd_1nscaOORocM3clrV(bh) {
+    try {
+      const crudOperationInstance: crudOperation =
+        this.__page_injector__.get(crudOperation);
+
+      let outputVariables = await crudOperationInstance.deleteUser();
+
+      bh = this.sd_SOFwlDSSvUvqNkd5(bh);
+      //appendnew_next_sd_1nscaOORocM3clrV
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_1nscaOORocM3clrV');
+    }
+  }
+
+  async sd_SOFwlDSSvUvqNkd5(bh) {
+    try {
+      const crudOperationInstance: crudOperation =
+        this.__page_injector__.get(crudOperation);
+
+      let outputVariables = await crudOperationInstance.getRegUsers();
+      this.page.users = outputVariables.local.result;
+
+      bh = this.sd_vYH1z8IjTYS2MwZU(bh);
+      //appendnew_next_sd_SOFwlDSSvUvqNkd5
+      return bh;
+    } catch (e) {
+      return await this.errorHandler(bh, e, 'sd_SOFwlDSSvUvqNkd5');
+    }
+  }
+
+  sd_vYH1z8IjTYS2MwZU(bh) {
+    try {
+      const page = this.page;
+      console.log(page.users, 'Users from back end Two dashboard');
+
+      page.tableData = page.users;
+      //page.users.forEach(function (item) {
+      //   console.log(item,'Each');
+      //})
+      console.log(page.tableData, 'o');
+      //appendnew_next_sd_vYH1z8IjTYS2MwZU
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_vYH1z8IjTYS2MwZU');
+    }
+  }
+
+  sd_UpNR8ciFCzpVQW5W(bh) {
+    try {
+      const updateDialogDialog = this.__page_injector__.get(MatDialog);
+      const updateDialogDialogRef = updateDialogDialog.open(
+        updateDialogComponent,
+        {}
+      );
+      updateDialogDialogRef.afterClosed().subscribe((event) => {
+        this.page.editRes = event;
+        this.sd_Ik0Nxk56UOPSnZgM(bh);
+
+        //appendnew_next_sd_UpNR8ciFCzpVQW5W;
+      });
+
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_UpNR8ciFCzpVQW5W');
+    }
+  }
+
+  sd_Ik0Nxk56UOPSnZgM(bh) {
+    try {
+      const page = this.page;
+      console.log(page.editRes, 'Hello Edit Data');
+      //appendnew_next_sd_Ik0Nxk56UOPSnZgM
+      return bh;
+    } catch (e) {
+      return this.errorHandler(bh, e, 'sd_Ik0Nxk56UOPSnZgM');
     }
   }
 

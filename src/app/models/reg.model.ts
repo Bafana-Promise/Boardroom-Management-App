@@ -11,10 +11,7 @@ export class reg {
   @JsonProperty('email', String, true)
   public email: string = undefined;
 
-  @JsonProperty('pass', String, true)
-  public pass: string = undefined;
-
-  @JsonProperty('conPass', String, true)
-  public conPass: string = undefined;
+  @JsonProperty('password', String, true)
+  public password: string = undefined;
 
 }
